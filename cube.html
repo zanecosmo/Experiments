@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>CUBE</title>
+    <style>
+        * {
+            box-sizing:border-box;
+        }
+
+        .container {
+            position: absolute;
+            top:25%;
+            left:25%;
+            perspective: 500px;
+            perspective-origin: center;
+        }
+
+        .front {
+            display: block;
+            position: absolute;
+            padding: 25px;
+            font-size: 500%;
+            height: 300px;
+            width: 300px;
+            background-color: grey;
+            border: 1px solid black;
+            transform: rotateY(35deg);
+            transform-style: preserve-3d;
+        }
+
+
+    </style>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='front'>TEXT</div>
+            <div class='left'></div>
+        </div>
+    </body>
+</html>

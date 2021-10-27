@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <title>SVG TEST</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            .mandala {
+                position: absolute;
+                top: 50px;
+                left: 190px;
+                transition: transform 100ms linear;
+                /* border: 1px solid black; */
+                border-radius: 50%;
+            }
+            
+            .mandala:hover {
+                transform: scale(2);
+                transform-origin: center;
+                z-index: 1;
+            }
+
+            .test {
+                position:absolute;
+                top: 50px;
+                left: 1px;
+                height: 50mm;
+                width: 50mm;
+                border-radius: 50%;
+                background-color: red;
+                transition: transform 100ms linear;
+            }
+
+            .test:hover {
+                transform: scale(2);
+                transform-origin: center;
+                z-index: 2;
+            }
+
+            .head {
+                position: absolute;
+                bottom: -135px;
+                right: -75px;
+                transform: rotate(-25deg);
+                /* border: 1px solid black; */
+                border-radius: 35px 35px 0 0;
+                transition: 325ms ease-in-out;
+            }
+
+            .head:hover {
+                transform: translate(-80px,-100px) rotate(-25deg);
+            }
+
+            .container {
+                position: relative;
+                border: 1px solid black;
+                width: 590px;
+                height: 500px;
+                overflow: hidden;
+            }       
+
+            .box {
+                position:absolute;
+                top: 300px;
+                left: 100px;
+                height: 100px;
+                width: 200px;
+                /* border: 1px solid black;  */
+                overflow: hidden;               
+            }
+
+            .holeTop {
+                position:absolute;
+                top: -1px;
+                left: -1px;
+                height: 100px;
+                width: 6px;
+                background-color: black;
+                border-radius: 40px 0px 0px 40px;                
+                z-index: 1;                
+            }
+
+            .holeBottom {
+                position:absolute;
+                top: -1px;
+                left: 5px;
+                height: 100px;
+                width: 6px;
+                background-color: black;
+                border-radius: 0px 40px 40px 0px;                                            
+            }
+
+            .tag {
+                position: absolute;
+                top: 3%;  
+                left: -90%;
+                height: 90%;
+                width: 100%;
+                background-color: blue;
+                transition: 325ms ease;
+                text-align: center;
+                font-size: 200%;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif; 
+                box-shadow: 2px 2px 0px 0px black;               
+            }
+            .tag:hover {
+                transform: translateX(88%);
+            }
+
+            .random {
+                position: absolute;
+                top: 300px;
+                left: 150px;
+                height: 50px;
+                width: 25px;
+                background-color: purple;
+                z-index: -1;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img class="mandala" src="mandala.svg" alt="mandala"/>
+            <img class="head" src="head.svg" alt="head"/>
+            <div class="test"></div>
+            <div class="box">
+                <div class="holeTop"></div>
+                <div class="holeBottom"></div>
+                <div class="tag">CONTENT</div>                                                       
+            </div>
+            <div class='random'>random content</div>
+            
+        </div>
+    </body>
+</html>

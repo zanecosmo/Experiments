@@ -1,0 +1,61 @@
+:root {
+    --buttonStyle: 1px solid midnightblue;
+    --buttonRadius: 4px;
+    --buttonColor: midnightblue;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.allContent {
+    position:absolute;
+    left:14%;
+    width:72%;
+    height:300px;
+    margin:2% 0 0 0;
+}
+
+p {
+    text-align: center;
+    font-size:250%;
+    font-family: Arial, Helvetica, sans-serif;
+    color:midnightblue;
+}
+
+.buttons {
+    position:absolute;
+    width:100%;
+    height:32px;
+    top:88%;
+    margin:0 0 0 20%;
+}
+
+.start,.stop,.reset {
+    display:inline-block;
+    position:relative;
+    border:var(--buttonStyle);
+    border-radius:var(--buttonRadius);
+    color:var(--buttonColor);
+    height:100%;
+    width:20%;
+    background-color:gainsboro;
+    font-weight:bold;
+    transition: background-color .2s;
+}
+
+.start:hover, .stop:hover, .reset:hover {
+    background-color:midnightblue;
+    cursor:pointer;
+    color:gainsboro;
+}
+
+.timerText {
+    position:absolute;
+    color:var(--buttonColor);
+    font-size:600%;
+    width:296px;
+    left:50%;
+    margin:0 0 0 -148px;
+    font-family: Arial, Helvetica, sans-serif;
+}

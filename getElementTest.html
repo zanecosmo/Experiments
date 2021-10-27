@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>TEST</title>
+        <style>
+            #blueBox {
+                position: relative;
+                background-color: blue;
+                height: 100px;
+                width: 100px;
+                cursor: pointer;
+            }
+
+            #redBox {
+                display: none;
+                background-color: red;
+                position: relative;
+                top: 100px;
+                height: 100px;
+                width: 100px;
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="blueBox"></div>
+        <div id="redBox"></div>
+
+        <script>
+            // PROMISE EXPERIMENT
+            const promiseTest = () => {
+                return new Promise((resolve, reject) => {
+                    let bigNum = 0;
+                    for (let i = 0; i < 180000000; i++) {
+                        bigNum += Math.floor(Math.random()*10)
+                    };
+                    resolve(bigNum); 
+                });
+                const handleTest2 = () => {
+                    const badFunction = () => {console.log(POOPY)};
+                    
+                    try {badFunction()}
+                    catch (error) {console.log(error)};
+                }
+                handleTest2();
+            }
+            promiseTest().then((number) => console.log(number));;
+            
+                
+            // TRY/CATCH EXPERIMENT
+            const handleTest = () => {
+                const badFunction = () => {console.log(FART)};
+                
+                try {badFunction()}
+                catch (error) {console.log(error)};
+            }
+            handleTest();
+            
+            // let firstClick = false;
+            
+            // TOGGLE EXPERIMENT
+            const toggleTest = () => {
+                const id = id => document.getElementById(id);
+                
+                const toggle = (elementA, elementB) => {
+                    elementA.style = "display: none";
+                    elementB.style = "display: inline-block";
+                }
+                
+                const event = (element1, element2, callBack) => {                
+                    element1.addEventListener('click', () => {
+                        callBack(element1, element2);
+                    });
+
+                    element2.addEventListener('click', () => {
+                    callBack(element2, element1);
+                    });        
+                }
+                event(id("blueBox"), id("redBox"), toggle)
+            }
+            toggleTest();
+            
+        </script>
+    </body>
+</html>

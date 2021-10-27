@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Add</title>
+    </head>
+    <body>
+        
+        <div>Which two numbers would you like to add?</div>
+
+        <form>
+            <label for="inputX"></label>
+            <input id= "userNumberX" name="inputX" type="text">
+            <label for="inputY">+</label>
+            <input id= "userNumberY" name="inputY" type="text">
+            <label for="submit"></label>
+            <input id="userInput" name="submit" type="button" value="="
+            onClick="doItAll()">
+        </form>
+
+        <div id="answer"></div>
+
+        <script>
+        
+            function doItAll () {
+                let userX = document.getElementById("userNumberX").value;
+                let userY = document.getElementById("userNumberY").value;
+                let addendX = parseInt(userX,10);
+                let addendY = parseInt(userY,10);
+                add4(addendX,addendY);
+
+                function add4 (x,y) {
+                    let sum = x + y;
+                    document.getElementById("answer").innerHTML = 
+                    ("the answer is: " + sum);
+                    console.log(sum);
+                }
+            }
+
+        </script>
+        
+    </body>
+</html>

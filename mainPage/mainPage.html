@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>zaneTerrain</title>
+
+  <style>
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      background-color: #fff7ed;
+      margin:0px;
+    }
+    h1 {
+      color: #011c75;
+      background-color:#bbdefb;
+      font-family:roboto,sans-serif;
+      font-size:65px;
+      font-weight:bold;
+      letter-spacing:-4px;
+      margin:0px 0px -16px 0px;
+      padding:16px 0px 0px 16px;
+    }
+      .navigation {
+        background-color:#695b4d;
+        color:#FFFFFF;
+        font-family:roboto,sans-serif;
+        font-weight:100;
+        font-size:32px;
+        padding:8px 0 8px 16px;
+        margin:0px;
+        width:100%;
+        top:0;
+        position:sticky;
+        z-index:1;
+      }
+      .card {
+        position:relative;
+        background-color:#d4d4d4;
+        width:80%;
+        height:200px;
+        margin: 32px 10% 0 10%;
+        padding:10px; 
+        border: 1px solid black;
+        border-radius:3px;
+        transition: box-shadow 200ms ease, transform .20s ease;
+
+      }
+
+      .card:hover {
+        box-shadow: -8px 8px 0 black;
+        transform: translate(4px, -4px);
+      }
+
+      .card h2 {
+        text-align: center;
+      }
+
+      #dv {
+        position:absolute;
+        width:10%;
+        height:50%;
+        left:20%;
+      }
+
+      #vd {
+        position:absolute;
+        width:10%;
+        height:50%;
+        right:0;
+      }
+  </style>
+</head>
+
+  <body>
+      <h1>zaneTerrain</h1>
+      <div class="navigation">Home</div>
+      
+      <div class="card">
+        <h2>BLAH</h2>
+          <img id="dv" src="DeathValley.JPG">
+          <!-- <img id="vd" src="Hand.jpg"> -->
+        </div>
+
+  </body>
+</html>
