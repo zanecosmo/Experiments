@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parabola</title>
+    </head>
+    <body>
+        <script>
+            const log = message => console.log(message);
+
+            const position = (coordX,coordY, color) => {
+                return `
+                position: absolute;
+                left: ${coordX}px;
+                top: ${coordY}px;
+                height: 5px;
+                width: 5px;
+                background-color: black;
+                `
+            }
+
+            const randomColor = () => {
+                r = rand(25.5);
+                g = rand(25.5);
+                b = rand(25.5);
+                log(`rgb(${r}, ${g}, ${b})`);
+                return `rgb(${r}, ${g}, ${b})`;
+            }
+
+            const positionAndColor = (coordX, coordY, color) => {
+                log("POSITION-AND-COLOR CALLED")
+                return `
+                position: absolute;
+                left: ${coordX}px;
+                top: ${coordY}px;
+                height: 5px;
+                width: 5px;
+                background-color: ${color};
+                `
+            }
+
+            const rand = length => Math.floor(Math.random()*(length*10));
+
+            const create = element => document.body.appendChild(document.createElement(element));
+        
+            const drawParabola = (a, b, c, bounds) => {
+                
+                const findY = (x) => a*x^2 + b*x + c;
+        
+                for (let i = 0; i < bounds; i++) {
+                    const Y = findY(i);
+                    create("div").style = square(i, Y);
+                }
+            }
+
+            const startAndStop = (func, interval, timeout) => {
+                const STOP = setInterval(func, interval);
+                setTimeout(() => clearInterval(STOP), timeout);
+            };
+
+            const plotAll = (quantity) => {
+                log("PLOT-ALL CALLED");
+                for (let i = 0; i < quantity; i++) {
+                    create("div").style = position(rand(50), rand(50));
+                }
+            }
+
+            const plotOne = (color) => {
+                log(color);
+                create("div").style = positionAndColor(rand(50), rand(50), color);
+            }
+        
+            startAndStop(() => {plotOne(randomColor())}, .05, 1000);
+        </script>
+        
+        
+    </body>
+</html>

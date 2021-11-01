@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" intial-scale="1" />
+        <title>FLEX TEST</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            .header {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100vw;
+                height: 40px;
+                background-color: lightblue;
+            }
+
+            .menuButton {
+                display: inline-block;
+                position: relative;
+                top: 5px;
+                height: 30px;
+                width: 30px;
+                margin-left: 5px;
+                background-color: white;
+            }
+
+            .logo {
+                display: inline-block;
+                position: absolute;;
+                top: 5px;
+                height: 30px;
+                width: 200px;
+                margin-left: 5px;
+                background-color: white;
+            }
+
+            .nav {
+                position: absolute;
+                top: 40px;
+                left: 0px;
+                width: 100vw;
+            }
+
+            .dropdown {
+                position: relative;
+                top: 0px;
+                left: 0px;
+                height: 0px;
+                width: 100%;
+            }
+
+            .main {
+                position: absolute;
+                right: 10px;
+                left: 10px;
+                top: 50px;
+                /* height: 200%; */
+                background-color: lightblue;
+            }
+
+            .title {
+                top: 0px;
+                left: 0px;
+                margin: 10px;
+                color: black;
+                text-align: center;
+                border: 1px solid black;
+            }
+
+            .wrapper {
+                position: relative;
+                width: 80%;
+                left: 10%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10%;
+                flex-wrap: wrap-reverse;
+            }
+
+            .image {
+                /* position: relative; */
+                /* top: 0px; */
+                width: 200px;
+                height: 100px;
+                background-color: red;
+                /* border: 1px solid black; */
+                order: 2;
+                align-self: start;
+            }
+
+            .content {
+                /* position: relative; */
+                width: 50%;
+                /* height: 300px; */
+                /* bottom: 10px; */
+                /* margin-top: 20px; */
+                color: black;
+                order: 1;
+                flex-grow: 1;
+            }
+
+            @media only screen and (min-width: 720px) {
+                .menuButton {
+                    display: none;
+                }
+
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <span class="menuButton"></span>
+            
+            <span class="logo"></span>
+
+            <nav class="nav">
+                <ul>
+                    <li class="menuLink">HOME</li>
+                    <li class="menuLink">ABOUT</li>
+                    <li class="menuLink">CONTENT
+                        <ul class="dropdown">
+                            <li class="dropdownLink">content a</li>
+                            <li class="dropdownLink">content b</li>
+                            <li class="dropdownLink">content c</li>
+                        </ul>
+                    </li>
+                    <li class="menuLink">OTHER</li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main">
+            <h1 class="title">SOME TITLE</h1>
+            <div class="wrapper">
+                <section class="content">ehgd keig k jja oaj f ajrfosjfo;saj awhejfojdkh     a ihddklsh ksdjh asd ha;ssdlkh iahf sdhkjfh aluihf sdh f 
+                    ehgd keig k jja oaj f ajrfosjfo;saj awhejfojdkh     a ihddklsh ksdjh asd ha;ssdlkh iahf sdhkjfh aluihf sdh f 
+                    ehgd keig k jja oaj f ajrfosjfo;saj awhejfojdkh  a ihddklsh ksdjh asd ha;ssdlkh iahf sdhkjfh aluihf sdh f 
+                    ehgd keig k jja oaj f ajrfosjfo;saj awhejfojdkh     a ihddklsh ksdjh asd ha;ssdlkh iahf sdhkjfh aluihf sdh f 
+                </section>
+                <div class="image"></div>
+            </div>
+        </main>
+    </body>
+</html>
