@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ROTATION TEST</title>
+    </head>
+    <body>
+        <canvas id="canvas" width="400" height="400" style="border: 1px solid black"></canvas>
+        <script>
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            const center = 40 + canvas.width/4
+
+            let empty = true;
+
+            let degree = 0;
+            
+            const rotateBox = (degree) => {
+                ctx.translate(center, center);
+                ctx.rotate(degree * Math.PI/180);
+                ctx.translate(-1*center,-1*center);
+            };
+
+            const render = () => {
+                ctx.save();
+                
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(20, 20, canvas.width, canvas.height);
+                
+                rotateBox(degree);
+                
+                ctx.fillStyle = "#220000";
+                ctx.fillRect(40, 40, canvas.width/2, canvas.height/2);
+                ctx.restore();
+            };
+
+            const clear = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            };
+
+            document.addEventListener("keypress", (e) => {
+                if (e.key === " ") {
+                    if (empty) {
+                        degree += 22.5;
+                        render();
+                        empty = !empty;
+                    } else {
+                        clear();
+                        empty = !empty;
+                    }
+                };
+            })
+        </script>
+    </body>
+</html>
