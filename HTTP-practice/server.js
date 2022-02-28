@@ -1,10 +1,12 @@
 const express = require("express");
-require("dotenv").config();
 const http = require("http");
+const cors = require("cors");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
-const app = express();
 const bodyParser = require("body-parser");
+const app = express();
+require("dotenv").config();
+
 
 const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
@@ -12,12 +14,10 @@ const refreshToken = process.env.REFRESH_TOKEN;
 const redirectURI = "https://developers.google.com/oauthplayground";
 
 const oAuth2Client = new google.auth.OAuth2(clientId, clientSecret, redirectURI);
+oAuth2Client.setCredentials({refreshToken: refreshToken});
 
-const buildEmail = async (messageText) => {
+const buildEmail = async (email) => {
     try {
-        oAuth2Client.setCredentials({refreshToken: refreshToken});
-        const accessToken = oAuth2Client.getAccessToken();
-
         const transportData = {
             service: "gmail",
             auth: {
@@ -25,8 +25,7 @@ const buildEmail = async (messageText) => {
                 user: "zanecosmo@gmail.com",
                 clientId: clientId,
                 clientSecret: clientSecret,
-                refreshToken: refreshToken,
-                accessToken: accessToken
+                refreshToken: refreshToken
             }
         };
         
@@ -35,21 +34,23 @@ const buildEmail = async (messageText) => {
         const message = {
             from: "zanecosmo <zanecosmo@gmail.com>",
             to: "zanecosmo@gmail.com",
-            subject: "TEST EMAIL",
-            text: messageText
+            subject: "E-MAIL SENT",
+            text: `NAME: ${email.name}, E-MAIL: ${email.email}, MESSAGE: ${email.message}`
         }
 
-        const result = transporter.sendMail(message);
+        const result = await transporter.sendMail(message);
         return result;
 
     } catch (error) {return error};
 }
 
-app.use("/", express.static(`${__dirname}/public`));
+const corsOptions = {origin: ["http://127.0.0.1:5501"]};
+
+app.options("/send-email", cors(corsOptions));
 app.use(bodyParser.json());
 
-app.post("/send-email", (req, res) => {
-    buildEmail(req.body.textValue)
+app.post("/send-email", cors(corsOptions), (req, res) => {
+    buildEmail(req.body)
         .then((result) => console.log(result))
         .catch((error) => console.log(error.message));
     res.send(req.body);
